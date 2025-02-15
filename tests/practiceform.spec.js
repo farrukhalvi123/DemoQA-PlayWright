@@ -20,5 +20,4 @@ test("Practice form test", async ({ page }) => {
 
     await prac.enter_textfields("farrukh", "alvi", "fja@yopmail.com", "1234567890", "2025-02-01", fpath);
     await prac.clickers();
-    await page.pause()
 });

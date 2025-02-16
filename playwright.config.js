@@ -42,7 +42,7 @@ export default defineConfig({
         ...devices['Desktop Chrome'],
         viewport: { width: 1920, height: 1080 },  // Full HD resolution (adjust based on your screen)
         launchOptions: {
-          headless: false, // Ensure browser is visible
+          headless: true, // Ensure browser is visible
         }
       }
 

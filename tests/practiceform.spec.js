@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test'
 import * as path from 'path';
+import {Practice} from '../Pages/PracticeformPages'
 
 test.beforeEach(async ({ page }) => {
     await page.goto("https://demoqa.com/")
@@ -12,6 +13,7 @@ test.afterEach(async ({ page }) => {
 
 })
 test("Practice form test", async ({ page, context }) => {
+    const practice = new Practice(page)
 
     await page.locator("//div[@class='home-body']//div[2]//div[1]//div[3]").click();
     await page.locator("//div[@class='element-list collapse show']//li[@id='item-0']").click();
@@ -22,11 +24,11 @@ test("Practice form test", async ({ page, context }) => {
     await page.locator("//input[@id='userEmail']").fill("fja@yopmail.com")
     const phonefield = await page.locator("//input[@id='userNumber']")
     phonefield.fill("1236547890")
-    await page.click("//label[normalize-space()='Male']")
+    await page.locator("//label[normalize-space()='Male']").click()
     await page.locator("//input[@id='dateOfBirthInput']").fill('2025-02-01')
     const cwd = process.cwd();
     const fpath = path.join(cwd, "Data Flow Diagram Whiteboard in Red Light Red Monochromatic Style (2).png")
     await page.locator("//input[@id='uploadPicture']").setInputFiles(fpath)
-    await page.click("//button[@id='submit']")
+    await page.locator("//button[@id='submit']").click()
 
 })
